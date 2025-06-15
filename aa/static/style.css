@@ -1,0 +1,60 @@
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        max-width: 700px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="file"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+
+    .result {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        color: #777;
+        font-size: 14px;
+    }
+
+    .prediction-highlight {
+        background-color: #e0ffe0;
+        padding: 10px;
+        border: 1px solid #6cc070;
+        border-radius: 5px;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #2e7d32;
+    }

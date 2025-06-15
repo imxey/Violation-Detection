@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Deteksi Pelanggaran (Edge Detection)</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Deteksi Pelanggaran</h1>
+
+      <form method="POST" enctype="multipart/form-data">
+        <label for="imageInput">Pilih Gambar:</label>
+        <input
+          type="file"
+          name="image"
+          id="imageInput"
+          accept="image/*"
+          required
+        />
+        <button type="submit">Deteksi</button>
+      </form>
+
+      {% if image_url %}
+      <h3>Gambar yang Diupload:</h3>
+      <img
+        src="{{ url_for('static', filename='uploads/' + filepath) }}"
+        width="300"
+      />
+      {% endif %} {% if result %}
+      <div class="prediction-highlight">
+        {% if result.detected %}
+        <span style="color: red; font-weight: bold"
+          >🚨 Pelanggaran Terdeteksi!</span
+        >
+        {% else %}
+        <span style="color: green">✅ Tidak ada pelanggaran</span>
+        {% endif %}
+      </div>
+      <div class="result">
+        <p><strong>Hasil Prediksi:</strong></p>
+        <ul>
+          {% for prob in result.prediction[0] %}
+          <li>{{ class_labels[loop.index0] }} - {{ prob }}</li>
+          {% endfor %}
+        </ul>
+        {% if result.detected %}
+        <p><strong>Pelanggaran:</strong> {{ result.class_label }}</p>
+        {%endif %}
+        <p>
+          <strong>Probabilitas tertinggi:</strong> {{ result.max_prediction }}
+        </p>
+      </div>
+
+      {% endif %}
+
+      <div class="footer">
+        &copy; 2025 Sistem Deteksi Pelanggaran Area Kampus
+      </div>
+    </div>
+  </body>
+</html>
